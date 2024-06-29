@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="text-3xl font-bold my-8 text-center">
-    Lista de Productos
-</h1>
-<div class="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-8">
+<div class="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-8 mt-8">
     {% for product in products %}
         <div class="h-32 rounded-lg bg-gray-200">
             <a href="#" class="group relative block overflow-hidden">
