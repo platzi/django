@@ -38,15 +38,16 @@
                 <h3 class="mt-4 text-lg font-medium text-gray-900">{{ product.name }}</h3>
             
                 <p class="mt-1.5 text-sm text-gray-700">${{ product.price }}</p>
-                    {% comment "" %}
-                    <form class="mt-4">
+                    
+                    <form action="{% url "add_product" %}" class="mt-4" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="product" value="{{product.id}}">
                     <button
                         class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
                     >
-                        Add to Cart
+                        Agregar al pedido
                     </button>
                     </form>
-                    {% endcomment %}
                 </div>
             </a>
         </div>
