@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_tailwind',
     'products',
     'users',
+    'orders',
 ]
 
 MIDDLEWARE = [
