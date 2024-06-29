@@ -1,15 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Detalles de la Orden</h2>
+    <div class="mb-2">
+        <span class="text-lg font-semibold">Usuario: </span>
+        <span class="text-lg">{{ order.user.username|title }}</span>
+    </div>
+    <div class="mb-2">
+        <span class="text-lg font-semibold">Fecha de la Orden: </span>
+        <span class="text-lg">{{ order.order_date|date:"F j, Y H:m" }}</span>
+    </div>
 
-{{order.user.username}}
-{{order.order_date|date}}
-
-{% for product_order in order.orderproduct_set.all %}
-    {{ product_order.product.name }}
-    {{ product_order.product.price }}
-{% empty %}
-    No hay items en tu orden
-{% endfor %}
-
+    <div class="mt-6">
+        <h3 class="text-xl font-bold mb-2">Artículos en tu orden:</h3>
+        {% for product_order in order.orderproduct_set.all %}
+            <div class="flex justify-between items-center py-2 border-b">
+                <div class="text-lg">{{ product_order.product.name }}</div>
+                <div class="text-lg font-semibold">{{ product_order.product.price }}</div>
+            </div>
+        {% empty %}
+            <div class="text-red-500">No hay artículos en tu orden</div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}
