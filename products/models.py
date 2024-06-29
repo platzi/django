@@ -8,5 +8,5 @@ class Product(models.Model):
     available = models.BooleanField(default=True, verbose_name="disponible")
     photo = models.ImageField(upload_to="logos", null=True, blank=True, verbose_name="foto")
 
-    def __srt__(self):
+    def __str__(self):
         return self.name
